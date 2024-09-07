@@ -1,6 +1,7 @@
 ﻿using System.Buffers;
 using System.Net.Sockets;
 using System.Net;
+using System.Diagnostics;
 namespace PortProxy
 {
 
@@ -85,6 +86,7 @@ namespace PortProxy
         public Int32 BufferSize { get; set; } = 81920;
 
         public Int32 ClientNum = 0;
+        public Int32 ErrorNum = 0;
 
         public String Status = "";
 
@@ -125,7 +127,7 @@ namespace PortProxy
                 listener = new TcpListener(LocalEndPoint);
                 listener.Start();
                 Task.Run(AcceptClients, cancelSource.Token);
-                this.Status = "Runing";
+                this.Status = "Running";
             }
             catch (Exception ex)
             {
@@ -170,9 +172,13 @@ namespace PortProxy
                 await Task.WhenAny(copyToForward, copyToClient);
                 remote.Close();
             }
+            catch(SocketException ex)
+            {
+                Interlocked.Increment(ref ErrorNum);
+            }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: {0}", ex.Message);
+                //Console.WriteLine("Error: {0}", ex.Message);
             }
             finally
             {

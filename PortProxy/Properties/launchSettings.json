@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PortProxy": {
+      "commandName": "Project",
+      "commandLineArgs": "start"
+    }
+  }
+}

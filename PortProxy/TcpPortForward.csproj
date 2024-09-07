@@ -9,7 +9,14 @@
     <PublishSingleFile>true</PublishSingleFile>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>tpf</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="conf.txt">
