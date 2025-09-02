@@ -1,7 +1,10 @@
-﻿using System.Buffers;
-using System.Net.Sockets;
+﻿using System;
+using System.Buffers;
+using System.IO;
 using System.Net;
-using System.Diagnostics;
+using System.Net.Sockets;
+using System.Threading;
+using System.Threading.Tasks;
 namespace PortProxy
 {
 
@@ -172,7 +175,7 @@ namespace PortProxy
                 await Task.WhenAny(copyToForward, copyToClient);
                 remote.Close();
             }
-            catch(SocketException ex)
+            catch (SocketException ex)
             {
                 Interlocked.Increment(ref ErrorNum);
             }

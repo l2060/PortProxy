@@ -3,19 +3,19 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
 
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
 	<PublishTrimmed>true</PublishTrimmed>
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishSingleFile>true</PublishSingleFile>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>disable</Nullable>
     <PlatformTarget>x64</PlatformTarget>
     <AssemblyName>tpf</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.8" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta7.25380.108" />
   </ItemGroup>
 
   <ItemGroup>
