@@ -14,13 +14,13 @@ namespace PortProxy
         static int Main(string[] args)
         {
             // root
-            var rootCommand = new RootCommand("端口转发管理工具");
+            var rootCommand = new RootCommand("TCP端口转发工具");
 
             // start
             var startCommand = new Command("--start", "启动服务");
             startCommand.SetAction(parseResult =>
             {
-                Start();
+                start();
                 return 0;
             });
 
@@ -110,7 +110,7 @@ namespace PortProxy
 
 
 
-        private static void Start()
+        private static void start()
         {
             Console.Clear();
             var lines = File.ReadAllLines("conf.txt")
